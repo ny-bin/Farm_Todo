@@ -27,7 +27,7 @@ async def create_todo(request: Request, response: Response, data: TodoBody, csrf
         value=f"Bearer {new_token}",
         httponly=True,
         samesite="none",
-        secure=True)
+        secure=False)
     if res:
         return res
     raise HTTPException(status_code=404, detail="Create task failed")
